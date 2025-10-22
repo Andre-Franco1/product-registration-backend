@@ -15,9 +15,10 @@ import com.abutua.product_backend.models.Product;
 @RestController
 public class ProductController {
 
-    private List<Product> products = Arrays.asList(new Product(1, "Product 1", 100.50),
-            new Product(2, "Product 2", 200.50),
-            new Product(3, "Product 3", 300.50));
+    private List<Product> products = Arrays.asList(
+        new Product(1, "Product 01", 100.50, 1, "Description 01", false, false),
+        new Product(2, "Product 02", 200.50, 2, "Description 02", true, true),
+        new Product(3, "Product 03", 300.50, 3, "Description 03", false, true));
 
     @GetMapping("products/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable int id) {
