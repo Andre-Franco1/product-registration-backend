@@ -18,10 +18,10 @@ import com.abutua.product_backend.models.Category;
 public class CategoryController {
     
     private List<Category> categories = Arrays.asList(
-        new Category(1, "Category 1"),
-        new Category(2, "Category 2"),
-        new Category(3, "Category 3"),
-        new Category(4, "Category 4"));
+        new Category(1, "In-House Production"),
+        new Category(2, "National"),
+        new Category(3, "Imported"),
+        new Category(4, "Premium"));
         
     @GetMapping("categories/{id}")
     public ResponseEntity<Category> getCategory(@PathVariable int id) {
