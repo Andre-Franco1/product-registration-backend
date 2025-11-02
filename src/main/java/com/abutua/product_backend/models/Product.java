@@ -13,9 +13,9 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
-    private double price;
+    private Double price;
 
     @ManyToOne
     private Category category;
@@ -23,13 +23,13 @@ public class Product {
     private boolean promotion;
     private boolean newProduct;
 
-    public Product(int id, String name, double price) {
+    public Product(Long id, String name, Double price) {
         this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public Product(int id, String name, double price, Category category, String description, boolean promotion,
+    public Product(Long id, String name, Double price, Category category, String description, boolean promotion,
             boolean newProduct) {
         this.id = id;
         this.name = name;
@@ -75,11 +75,11 @@ public class Product {
         this.newProduct = newProduct;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -91,11 +91,11 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 }
