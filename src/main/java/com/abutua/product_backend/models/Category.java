@@ -2,11 +2,14 @@ package com.abutua.product_backend.models;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="categories")
@@ -16,14 +19,17 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(nullable = false, unique = true, length = 255)
+    @NotBlank(message = "Name cannot be null")
+    @Size(min = 3, max = 255, message = "Name length min = 3 and max = 255")
     private String name;
+
+    public Category(){
+    }
 
     public Category(Integer id, String name){
         this.id = id;
         this.name = name;
-    }
-
-    public Category(){
     }
 
     public Integer getId() {
