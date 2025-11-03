@@ -2,14 +2,14 @@ package com.abutua.product_backend.models;
 
 import java.io.Serializable;
 
+import com.abutua.product_backend.dto.CategoryResponse;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="categories")
@@ -20,11 +20,17 @@ public class Category implements Serializable {
     private Integer id;
 
     @Column(nullable = false, unique = true, length = 255)
-    @NotBlank(message = "Name cannot be null")
-    @Size(min = 3, max = 255, message = "Name length min = 3 and max = 255")
     private String name;
 
     public Category(){
+    }
+
+    public Category(Integer id) {
+        this.id = id;
+    }
+
+    public Category(String name) {
+        this.name = name;
     }
 
     public Category(Integer id, String name){
@@ -43,6 +49,10 @@ public class Category implements Serializable {
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public CategoryResponse toDTO() {
+        return new CategoryResponse(id, name);
     }
 
     @Override
